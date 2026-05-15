@@ -5,10 +5,5 @@ exports.getHome = (req, res) => {
 
 // About Page
 exports.getAbout = (req, res) => {
-    res.render('about', { title: 'About Me' });
-};
-
-// Products Page
-exports.getProducts = (req, res) => {
-    res.render('products', { title: 'Our Products' });
+    res.render('about', { title: 'About Us' });
 };
