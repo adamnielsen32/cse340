@@ -1,0 +1,28 @@
+<%- include('../partials/header', { title: title }) %>
+
+<main>
+    <h1><%= title %></h1>
+
+    <section class="faculty-sort">
+        <form method="get" action="/faculty">
+            <label for="sort">Sort by:</label>
+            <select id="sort" name="sort" onchange="this.form.submit()">
+                <option value="name" <%= currentSort === 'name' ? 'selected' : '' %>>Name</option>
+                <option value="department" <%= currentSort === 'department' ? 'selected' : '' %>>Department</option>
+                <option value="title" <%= currentSort === 'title' ? 'selected' : '' %>>Title</option>
+            </select>
+        </form>
+    </section>
+
+    <section class="faculty-list">
+        <% faculty.forEach((member) => { %>
+            <article class="faculty-card">
+                <h2><a href="/faculty/<%= member.id %>"><%= member.name %></a></h2>
+                <p><strong>Department:</strong> <%= member.department %></p>
+                <p><strong>Title:</strong> <%= member.title %></p>
+            </article>
+        <% }) %>
+    </section>
+</main>
+
+<%- include('../partials/footer') %>
